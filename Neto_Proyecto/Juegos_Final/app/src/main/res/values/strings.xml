@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Game Planet</string>
-    <string name="facebook_app_id">255980525142675</string>
-    <string name="fb_login_protocol_scheme">fb255980525142675</string>
+    <string name="facebook_app_id">2062073334008945</string>
+    <string name="fb_login_protocol_scheme">fb2062073334008945</string>
+
 
 </resources>
