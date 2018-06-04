@@ -56,19 +56,24 @@ class MainActivity : AppCompatActivity() {
                     object : FacebookCallback<LoginResult> {
                         override fun onSuccess(loginResult: LoginResult) {
                             Log.d("MainActivity", "Facebook token: " + loginResult.accessToken.token)
-                            startActivity(Intent(applicationContext,Inicio::class.java))
-                            Toast.makeText(applicationContext, "Abriendo Sesion", Toast.LENGTH_LONG).show()
+
+                            if (loginResult.accessToken!=null) {
+                                startActivity(Intent(applicationContext, Inicio::class.java))
+                                Toast.makeText(applicationContext, "Abriendo Sesion ${loginResult.accessToken} ", Toast.LENGTH_LONG).show()
+                            }
 
 
                         }
 
                         override fun onCancel() {
                             Log.d("MainActivity", "Facebook onCancel.")
-
+                            Toast.makeText(applicationContext,"Cancelo",Toast.LENGTH_LONG).show()
                         }
 
                         override fun onError(error: FacebookException) {
                             Log.d("MainActivity", "Facebook onError.")
+                            Toast.makeText(applicationContext,"Salio un Error $error",Toast.LENGTH_LONG).show()
+
 
                         }
                     })
