@@ -9,6 +9,7 @@ import android.view.View
 
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_catalogo.*
 import kotlinx.android.synthetic.main.activity_sugerencias.view.*
@@ -20,6 +21,12 @@ class Catalogo(var adaptador:ProductosAdaptador?=null) : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_catalogo)
+
+        var Carrito = findViewById<Button>(R.id.CarritoCatalogo)
+        Carrito.setOnClickListener{
+
+            startActivity(Intent(applicationContext,Prueba::class.java))
+        }
 
         listaCatalogo.add(Productos(500.5F,"Puerto Vallarta",20))
         listaCatalogo.add(Productos(200.5F,"Ixtapa",5))

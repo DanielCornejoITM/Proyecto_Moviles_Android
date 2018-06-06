@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Wed Jun 06 03:53:00 CDT 2018
+0.baseType=DIRECTORY
+0.base=/home/daniel/Documentos/Proyecto_Moviles_Android/Enne/Punto_de_Venta/app/build/intermediates/transforms/dexMerger/debug/0
+0.path=classes.dex
+0.set=DEX
+count=1
