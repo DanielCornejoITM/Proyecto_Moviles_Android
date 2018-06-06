@@ -19,15 +19,10 @@ class Catalogo(var adaptador:ProductosAdaptador?=null) : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_catalogo)
 
-        listaCatalogo.add(Productos(30.0F,"Amigo"))
-        listaCatalogo.add(Productos(20.0F,"Cosa"))
-        listaCatalogo.add(Productos(10.0F,"Memo"))
-        listaCatalogo.add(Productos(30.5F,"Hola"))
-        listaCatalogo.add(Productos(330.0F,"Sociedad"))
-        listaCatalogo.add(Productos(80.0F,"Perro"))
-        listaCatalogo.add(Productos(110.0F,"Gustavo"))
-        listaCatalogo.add(Productos(330.0F,"Nieto"))
-        listaCatalogo.add(Productos(900.0F,"Momo"))
+        listaCatalogo.add(Productos(500.5F,"Puerto Vallarta",20))
+        listaCatalogo.add(Productos(200.5F,"Ixtapa",5))
+        listaCatalogo.add(Productos(900.5F,"Los Cabos",100))
+
         adaptador =ProductosAdaptador(this,this.listaCatalogo)
 
 
@@ -43,8 +38,10 @@ class Catalogo(var adaptador:ProductosAdaptador?=null) : AppCompatActivity() {
             val producto=ListaProductos[position]
             val inflador= contexto1!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val mivista =inflador.inflate(R.layout.modecatalogo,null)
-            mivista.Titulo.text=producto.Titulo!!
-            mivista.Costo.text=producto.Precio.toString()!!
+            mivista.Destino1.text=producto.Destino!!
+            mivista.Costo1.text=producto.Precio.toString()!!
+            mivista.Duracion1.text=producto.Dias.toString()!!
+
             return mivista
 
         }
