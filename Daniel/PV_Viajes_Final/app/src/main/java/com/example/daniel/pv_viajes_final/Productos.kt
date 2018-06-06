@@ -1,13 +1,15 @@
 package com.example.daniel.pv_viajes_final
 
 class Productos {
-    var Titulo :String?=null
+    var Destino :String?=null
+    var Dias    :Int?=null
     var Precio : Float?=null
 
 
-constructor(precio:Float,titulo:String ){
+constructor(precio:Float,destino:String,dias:Int ){
     this.Precio=precio
-    this.Titulo=titulo
+    this.Destino=destino
+    this.Dias=dias
 
 
 

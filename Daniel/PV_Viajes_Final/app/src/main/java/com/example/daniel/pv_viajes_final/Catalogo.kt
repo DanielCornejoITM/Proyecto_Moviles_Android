@@ -1,6 +1,7 @@
 package com.example.daniel.pv_viajes_final
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +9,8 @@ import android.view.View
 
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_catalogo.*
 import kotlinx.android.synthetic.main.activity_sugerencias.view.*
 import kotlinx.android.synthetic.main.modecatalogo.view.*
@@ -19,15 +22,16 @@ class Catalogo(var adaptador:ProductosAdaptador?=null) : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_catalogo)
 
-        listaCatalogo.add(Productos(30.0F,"Amigo"))
-        listaCatalogo.add(Productos(20.0F,"Cosa"))
-        listaCatalogo.add(Productos(10.0F,"Memo"))
-        listaCatalogo.add(Productos(30.5F,"Hola"))
-        listaCatalogo.add(Productos(330.0F,"Sociedad"))
-        listaCatalogo.add(Productos(80.0F,"Perro"))
-        listaCatalogo.add(Productos(110.0F,"Gustavo"))
-        listaCatalogo.add(Productos(330.0F,"Nieto"))
-        listaCatalogo.add(Productos(900.0F,"Momo"))
+        var Carrito = findViewById<Button>(R.id.CarritoCatalogo)
+        Carrito.setOnClickListener{
+
+            startActivity(Intent(applicationContext,Prueba::class.java))
+        }
+
+        listaCatalogo.add(Productos(500.5F,"Puerto Vallarta",20))
+        listaCatalogo.add(Productos(200.5F,"Ixtapa",5))
+        listaCatalogo.add(Productos(900.5F,"Los Cabos",100))
+
         adaptador =ProductosAdaptador(this,this.listaCatalogo)
 
 
@@ -43,8 +47,16 @@ class Catalogo(var adaptador:ProductosAdaptador?=null) : AppCompatActivity() {
             val producto=ListaProductos[position]
             val inflador= contexto1!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val mivista =inflador.inflate(R.layout.modecatalogo,null)
-            mivista.Titulo.text=producto.Titulo!!
-            mivista.Costo.text=producto.Precio.toString()!!
+            mivista.Destino1.text=producto.Destino!!
+            mivista.Costo1.text=producto.Precio.toString()!!
+            mivista.Duracion1.text=producto.Dias.toString()!!
+            mivista.ButtonCompra.setOnClickListener{
+                var obj :AgregarCarrito= AgregarCarrito(producto.Destino!!.toString(),producto.Dias!!,producto.Precio!!)
+                Toast.makeText(contexto1, "Destino:${producto.Destino}\n Duracion:${producto.Dias}\n Precio:${producto.Precio}", Toast.LENGTH_LONG).show()
+
+
+            }
+
             return mivista
 
         }
