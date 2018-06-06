@@ -5,19 +5,31 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_catalogo.*
 import kotlinx.android.synthetic.main.activity_sugerencias.view.*
 import kotlinx.android.synthetic.main.modecatalogo.view.*
 
 class Catalogo(var adaptador:ProductosAdaptador?=null) : AppCompatActivity() {
 
+    lateinit var fireBase = DatabaseReference
+
     var listaCatalogo = ArrayList<Productos>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_catalogo)
+
+        fireBase = FirebaseDatabase.getInstance().getReference("paquetes")
+
+
+        fireBase.addValueEventListener(object: ValueEventListener{
+
+
+        });
 
         listaCatalogo.add(Productos(30.0F,"Amigo"))
         listaCatalogo.add(Productos(20.0F,"Cosa"))
