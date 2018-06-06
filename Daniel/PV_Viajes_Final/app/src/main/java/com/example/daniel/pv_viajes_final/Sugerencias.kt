@@ -42,6 +42,7 @@ class Sugerencias(var adaptador: Catalogo.ProductosAdaptador?=null)  : AppCompat
             mivista.Costo1.text=producto.Precio.toString()!!
             mivista.Duracion1.text=producto.Dias.toString()!!
 
+
             return mivista
 
         }

@@ -1,6 +1,7 @@
 package com.example.daniel.pv_viajes_final
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.View
 
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_catalogo.*
 import kotlinx.android.synthetic.main.activity_sugerencias.view.*
 import kotlinx.android.synthetic.main.modecatalogo.view.*
@@ -41,6 +43,12 @@ class Catalogo(var adaptador:ProductosAdaptador?=null) : AppCompatActivity() {
             mivista.Destino1.text=producto.Destino!!
             mivista.Costo1.text=producto.Precio.toString()!!
             mivista.Duracion1.text=producto.Dias.toString()!!
+            mivista.ButtonCompra.setOnClickListener{
+                var obj :AgregarCarrito= AgregarCarrito(producto.Destino!!.toString(),producto.Dias!!,producto.Precio!!)
+                Toast.makeText(contexto1, "Destino:${producto.Destino}\n Duracion:${producto.Dias}\n Precio:${producto.Precio}", Toast.LENGTH_LONG).show()
+
+
+            }
 
             return mivista
 
