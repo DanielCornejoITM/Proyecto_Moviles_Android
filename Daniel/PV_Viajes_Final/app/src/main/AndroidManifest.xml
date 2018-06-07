@@ -49,7 +49,7 @@
         <activity android:name=".Catalogo" />
         <activity android:name=".Prueba" />
         <activity android:name=".Carrito" />
-        <activity android:name=".Cosa1"></activity>
+        <activity android:name=".Carrito"></activity>
     </application>
 
 </manifest>

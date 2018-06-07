@@ -10,7 +10,7 @@ import com.example.daniel.pv_viajes_final.DataModel.Paquete
 import com.example.daniel.pv_viajes_final.DataModel.PaqueteModel
 import java.util.*
 
-class Cosa1 : AppCompatActivity(), Observer {
+class Carrito : AppCompatActivity(), Observer {
 
     private  var mPaqueteListAdapter2 : PaqueteCarroAdapter? = null
 

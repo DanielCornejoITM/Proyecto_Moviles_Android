@@ -1,23 +1,14 @@
 package com.example.daniel.pv_viajes_final
 
-import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
 
-import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.ListView
-import android.widget.Toast
 import com.example.daniel.pv_viajes_final.Adapters.PaqueteCardAdapter
 import com.example.daniel.pv_viajes_final.DataModel.Paquete
 import com.example.daniel.pv_viajes_final.DataModel.PaqueteModel
-import kotlinx.android.synthetic.main.activity_catalogo.*
-import kotlinx.android.synthetic.main.activity_sugerencias.view.*
-import kotlinx.android.synthetic.main.modecatalogo.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -54,7 +45,7 @@ private  var mPaqueteListAdapter : PaqueteCardAdapter? = null
         var Botoncarro = findViewById<Button>(R.id.CarritoCatalogo)
 
         Botoncarro.setOnClickListener {
-            startActivity(Intent(applicationContext,Cosa1::class.java))
+            startActivity(Intent(applicationContext,Carrito::class.java))
         }
 
 
