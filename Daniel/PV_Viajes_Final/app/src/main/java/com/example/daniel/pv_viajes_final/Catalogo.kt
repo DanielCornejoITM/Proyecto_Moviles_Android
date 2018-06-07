@@ -37,6 +37,8 @@ private  var mPaqueteListAdapter : PaqueteCardAdapter? = null
         mPaqueteListAdapter = PaqueteCardAdapter(this,R.layout.modecatalogo,data)
         datalist.adapter=mPaqueteListAdapter
 
+
+
     }
     override fun update(o: Observable?, arg: Any?) {
         mPaqueteListAdapter?.clear()
@@ -47,6 +49,12 @@ private  var mPaqueteListAdapter : PaqueteCardAdapter? = null
             mPaqueteListAdapter?.addAll(data)
             mPaqueteListAdapter?.notifyDataSetChanged()
 
+        }
+
+        var Botoncarro = findViewById<Button>(R.id.CarritoCatalogo)
+
+        Botoncarro.setOnClickListener {
+            startActivity(Intent(applicationContext,Cosa1::class.java))
         }
 
 

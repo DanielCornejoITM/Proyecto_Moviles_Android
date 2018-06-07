@@ -28,6 +28,9 @@ class Sugerencias(var adaptador: Sugerencias.ProductosAdaptador?=null)  : AppCom
 
         adaptador = Sugerencias.ProductosAdaptador(this, this.listaCatalogo)
         MilistaSugerencia.adapter=adaptador
+
+
+
     }
 
 

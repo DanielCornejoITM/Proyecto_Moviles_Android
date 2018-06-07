@@ -12,7 +12,7 @@ class AgregarCarrito{
 
     var mcontexto:Context?=null
 
-    var hijo2:String?="compra"
+    var hijo2:String?=""
 
 
     constructor(context: Context) {
@@ -26,7 +26,7 @@ class AgregarCarrito{
     fun addItem(DestinoC: String,DiasC: String,PrecioC: String) {
 
         var r =(0..1000).random()
-        hijo2+=r.toString()
+        hijo2=r.toString()
 
         Toast.makeText(mcontexto,"Recibo Destino:$DestinoC\nDias: $DiasC\n y Precio:$PrecioC\n para el hijo= $hijo2 ",Toast.LENGTH_LONG).show()
 
@@ -34,21 +34,21 @@ class AgregarCarrito{
             firebaseData
                     .child(hijo1)
                     .child(hijo2)
-                    .child("Destino")
+                    .child("destino")
                     .setValue(DestinoC)
 
 
             firebaseData
                     .child(hijo1)
                     .child(hijo2)
-                    .child("Precio")
+                    .child("precio")
                     .setValue(PrecioC)
 
 
             firebaseData
                     .child(hijo1)
                     .child(hijo2)
-                    .child("Dias")
+                    .child("dias")
                     .setValue(DiasC)
 
             Toast.makeText(mcontexto,"Segun, ya añadio",Toast.LENGTH_LONG).show()
