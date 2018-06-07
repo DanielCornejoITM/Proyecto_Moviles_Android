@@ -22,6 +22,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class Catalogo : AppCompatActivity(),Observer {
+
 private  var mPaqueteListAdapter : PaqueteCardAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -33,7 +33,7 @@ class Sugerencias(var adaptador: Sugerencias.ProductosAdaptador?=null)  : AppCom
 
 
     class ProductosAdaptador(contexto: Context, var ListaProductos: ArrayList<Productos>): BaseAdapter(){
-        var contexto1: Context?=contexto
+        val contexto1: Context?=contexto
 
 
 
@@ -44,6 +44,11 @@ class Sugerencias(var adaptador: Sugerencias.ProductosAdaptador?=null)  : AppCom
             mivista.Destino1.text=producto.Destino!!
             mivista.Costoso1.text=producto.Precio.toString()!!
             mivista.Duraciones1.text=producto.Dias.toString()!!
+            mivista.ButtonCompra.setOnClickListener({
+
+                AgregarCarrito(contexto1).addItem(producto.Destino!!.toString(),producto.Dias!!.toString(),producto.Precio!!.toString())
+
+            })
 
 
             return mivista
