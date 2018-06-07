@@ -20,14 +20,14 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/Costo1"
+            android:id="@+id/Costoso1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Costo"
             android:textSize="30sp" />
         <TextView
-            android:id="@+id/Duracion1"
+            android:id="@+id/Duraciones1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

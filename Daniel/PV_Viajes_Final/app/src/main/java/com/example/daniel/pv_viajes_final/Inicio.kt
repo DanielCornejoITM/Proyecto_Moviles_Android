@@ -1,6 +1,4 @@
 package com.example.daniel.pv_viajes_final
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -20,17 +18,17 @@ class Inicio : AppCompatActivity() {
         var BotonCatalogo = findViewById<Button>(R.id.Catalogo)
         var BotonSugerencias = findViewById<Button>(R.id.Sugerencias)
 
-        fermer.setOnClickListener(View.OnClickListener {
+        fermer.setOnClickListener( {
 
             Toast.makeText(applicationContext, "Cerrando Sesion", Toast.LENGTH_LONG).show()
             LoginManager.getInstance().logOut()
             finish()
 
         })
-        BotonCatalogo.setOnClickListener(View.OnClickListener {
+        BotonCatalogo.setOnClickListener( {
             startActivity(Intent(applicationContext,Catalogo::class.java)) })
 
-        BotonSugerencias.setOnClickListener(View.OnClickListener {
+        BotonSugerencias.setOnClickListener({
             startActivity(Intent(applicationContext,Sugerencias::class.java)) })
 
 

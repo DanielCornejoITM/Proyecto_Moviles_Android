@@ -10,9 +10,12 @@ import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.activity_sugerencias.*
 import kotlinx.android.synthetic.main.modecatalogo.view.*
 
-class Sugerencias(var adaptador: Catalogo.ProductosAdaptador?=null)  : AppCompatActivity() {
+class Sugerencias(var adaptador: Sugerencias.ProductosAdaptador?=null)  : AppCompatActivity() {
     var listaCatalogo = ArrayList<Productos>()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sugerencias)
 
@@ -23,7 +26,7 @@ class Sugerencias(var adaptador: Catalogo.ProductosAdaptador?=null)  : AppCompat
         listaCatalogo.add(Productos(900.5F,"Chiapas",100))
         listaCatalogo.add(Productos(900.5F,"Yucatan",100))
 
-        adaptador = Catalogo.ProductosAdaptador(this, this.listaCatalogo)
+        adaptador = Sugerencias.ProductosAdaptador(this, this.listaCatalogo)
         MilistaSugerencia.adapter=adaptador
     }
 
@@ -39,8 +42,8 @@ class Sugerencias(var adaptador: Catalogo.ProductosAdaptador?=null)  : AppCompat
             val inflador= contexto1!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val mivista =inflador.inflate(R.layout.modecatalogo,null)
             mivista.Destino1.text=producto.Destino!!
-            mivista.Costo1.text=producto.Precio.toString()!!
-            mivista.Duracion1.text=producto.Dias.toString()!!
+            mivista.Costoso1.text=producto.Precio.toString()!!
+            mivista.Duraciones1.text=producto.Dias.toString()!!
 
 
             return mivista

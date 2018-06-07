@@ -10,71 +10,59 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Button
+import android.widget.ListView
 import android.widget.Toast
+import com.example.daniel.pv_viajes_final.Adapters.PaqueteCardAdapter
+import com.example.daniel.pv_viajes_final.DataModel.Paquete
+import com.example.daniel.pv_viajes_final.DataModel.PaqueteModel
 import kotlinx.android.synthetic.main.activity_catalogo.*
 import kotlinx.android.synthetic.main.activity_sugerencias.view.*
 import kotlinx.android.synthetic.main.modecatalogo.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
-class Catalogo(var adaptador:ProductosAdaptador?=null) : AppCompatActivity() {
+class Catalogo : AppCompatActivity(),Observer {
+private  var mPaqueteListAdapter : PaqueteCardAdapter? = null
 
-    var listaCatalogo = ArrayList<Productos>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_catalogo)
+        PaqueteModel
 
-        var Carrito = findViewById<Button>(R.id.CarritoCatalogo)
-        Carrito.setOnClickListener{
+        PaqueteModel.addObserver(this)
+        val datalist: ListView= findViewById(R.id.Milista)
+        val data :ArrayList<Paquete> = ArrayList()
 
-            startActivity(Intent(applicationContext,Prueba::class.java))
+        mPaqueteListAdapter = PaqueteCardAdapter(this,R.layout.modecatalogo,data)
+        datalist.adapter=mPaqueteListAdapter
+
+    }
+    override fun update(o: Observable?, arg: Any?) {
+        mPaqueteListAdapter?.clear()
+        val data =PaqueteModel.SacarInfo()
+        if (data!=null){
+
+            mPaqueteListAdapter?.clear()
+            mPaqueteListAdapter?.addAll(data)
+            mPaqueteListAdapter?.notifyDataSetChanged()
+
         }
 
-        listaCatalogo.add(Productos(500.5F,"Puerto Vallarta",20))
-        listaCatalogo.add(Productos(200.5F,"Ixtapa",5))
-        listaCatalogo.add(Productos(900.5F,"Los Cabos",100))
 
-        adaptador =ProductosAdaptador(this,this.listaCatalogo)
-
-
-        Milista.adapter=adaptador
     }
 
-    class ProductosAdaptador(contexto:Context,var ListaProductos: ArrayList<Productos>):BaseAdapter(){
-       var contexto1:Context?=contexto
+    override fun onResume() {
+        super.onResume()
+        PaqueteModel.addObserver(this)
+    }
 
+    override fun onPause() {
+        super.onPause()
+        PaqueteModel.deleteObserver(this)
+    }
 
-
-        override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-            val producto=ListaProductos[position]
-            val inflador= contexto1!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            val mivista =inflador.inflate(R.layout.modecatalogo,null)
-            mivista.Destino1.text=producto.Destino!!
-            mivista.Costo1.text=producto.Precio.toString()!!
-            mivista.Duracion1.text=producto.Dias.toString()!!
-            mivista.ButtonCompra.setOnClickListener{
-                var obj :AgregarCarrito= AgregarCarrito(producto.Destino!!.toString(),producto.Dias!!,producto.Precio!!)
-                Toast.makeText(contexto1, "Destino:${producto.Destino}\n Duracion:${producto.Dias}\n Precio:${producto.Precio}", Toast.LENGTH_LONG).show()
-
-
-            }
-
-            return mivista
-
-        }
-
-        override fun getItem(position: Int): Any {
-            return ListaProductos[position]
-
-        }
-
-        override fun getItemId(position: Int): Long {
-            return  position.toLong()
-        }
-
-        override fun getCount(): Int {
-
-            return ListaProductos.size
-        }
-
-
+    override fun onStop() {
+        super.onStop()
+        PaqueteModel.deleteObserver(this)
     }
 }
