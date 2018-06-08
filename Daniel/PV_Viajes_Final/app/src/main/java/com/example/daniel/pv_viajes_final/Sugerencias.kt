@@ -1,77 +1,67 @@
 package com.example.daniel.pv_viajes_final
 
-import android.content.Context
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.BaseAdapter
+import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
+import android.widget.Toast
+import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_sugerencias.*
-import kotlinx.android.synthetic.main.modecatalogo.view.*
+import okhttp3.*
+import java.io.IOException
 
-class Sugerencias(var adaptador: Sugerencias.ProductosAdaptador?=null)  : AppCompatActivity() {
-    var listaCatalogo = ArrayList<Productos>()
-
+class Sugerencias : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sugerencias)
 
 
+        recyclerSugerencias.layoutManager=LinearLayoutManager(this)
 
-        listaCatalogo.add(Productos(500.5F,"Huatulco",20))
-        listaCatalogo.add(Productos(200.5F,"Cancun",5))
-        listaCatalogo.add(Productos(900.5F,"Chiapas",100))
-        listaCatalogo.add(Productos(900.5F,"Yucatan",100))
 
-        adaptador = Sugerencias.ProductosAdaptador(this, this.listaCatalogo)
-        MilistaSugerencia.adapter=adaptador
 
+
+        fetchJson()
+    }
+    fun fetchJson(){
+
+
+        val url="https://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?apikey=JkCLqihp0zjGVBvrnfUeqvsbFisA1RYM&origin=MEX"
+        //val url="https//api.letsbuildthatapp.com/youtube/home_feed"
+
+        val request= Request.Builder().url(url).build()
+        val client =OkHttpClient()
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call?, e: IOException?) {
+                Toast.makeText(this@Sugerencias,"Fallo Al leer la API",Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call?, response: Response?) {
+            val body= response?.body()?.string()
+                Log.i("Cuerpos",body)
+
+
+
+                val gson =GsonBuilder().create()
+               val homefeed= gson.fromJson(body,Homefeed::class.java)
+                runOnUiThread {
+
+                    recyclerSugerencias.adapter=MainAdpapterSugerencias(homefeed)
+
+                }
+            }
+
+
+        })
 
 
     }
 
+    class Homefeed(val results:List<Result>)
+
+    class Result(val destination:String,val departure_date :String, val return_date :String ,val price:String,val airlin:String)
 
 
-    class ProductosAdaptador(contexto: Context, var ListaProductos: ArrayList<Productos>): BaseAdapter(){
-        val contexto1: Context?=contexto
-
-
-
-        override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-            val producto=ListaProductos[position]
-            val inflador= contexto1!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            val mivista =inflador.inflate(R.layout.modecatalogo,null)
-            mivista.Destino1.text=producto.Destino!!
-            mivista.Costoso1.text=producto.Precio.toString()!!
-            mivista.Duraciones1.text=producto.Dias.toString()!!
-            mivista.ButtonCompra.setOnClickListener({
-
-                AgregarCarrito(contexto1).addItem(producto.Destino!!.toString(),producto.Dias!!.toString(),producto.Precio!!.toString())
-
-            })
-
-
-            return mivista
-
-        }
-
-        override fun getItem(position: Int): Any {
-            return ListaProductos[position]
-
-        }
-
-        override fun getItemId(position: Int): Long {
-            return  position.toLong()
-        }
-
-        override fun getCount(): Int {
-
-            return ListaProductos.size
-        }
-
-
-    }
 }
