@@ -48,26 +48,25 @@ class PaqueteCardAdapter(context: Context,resource: Int,list: ArrayList<Paquete>
 
         try {
 
-            val boton:Button?=view.findViewById(R.id.ButtonCompra)
-
-            val Paquetedestino:TextView? = view.findViewById(R.id.Destino1)
-
-            val Costo:TextView? = view.findViewById(R.id.Costoso1)
-
-            val Dias:TextView?=view.findViewById(R.id.Duraciones1)
+            val boton:Button?=view.findViewById(R.id.Cata_boton)
+            val Paquetedestino:TextView? = view.findViewById(R.id.Cata_ciudad)
+            val Precio:TextView? = view.findViewById(R.id.Cata_cost)
+            val Salida:TextView?=view.findViewById(R.id.Cata_sale)
+            val Llegada:TextView?=view.findViewById(R.id.Cata_llega)
 
             boton?.text="Compra!!"
 
             Paquetedestino?.text=paquete?.v_Destino?:""
 
 
-            Costo?.text=paquete?.v_Precio?:""
+            Precio?.text=paquete?.v_Precio?:""
 
-            Dias?.text=paquete?.v_Dias?:""
+            Salida?.text=paquete?.v_Sale?:""
+            Llegada?.text=paquete?.v_LLega?:""
 
             boton?.setOnClickListener({
 
-                AgregarCarrito(mContext).addItem(paquete?.v_Destino!!,paquete?.v_Dias!!,paquete?.v_Precio!!)
+                AgregarCarrito(mContext).addItem(paquete?.v_Destino!!,paquete?.v_Sale!!,paquete?.v_LLega!!,paquete?.v_Precio!!)
 
 
 

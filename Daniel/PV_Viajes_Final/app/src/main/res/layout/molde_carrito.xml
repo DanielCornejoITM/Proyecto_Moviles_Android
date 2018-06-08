@@ -1,86 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+        <TextView
+            android:id="@+id/Textvv"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:text="Destino: "
+            android:textSize="35dp" />
 
-            <TextView
-                android:id="@+id/TituloDestino"
-                android:layout_width="47dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Destino: " />
-
-            <TextView
-                android:id="@+id/DestinoCarr"
-                android:layout_width="47dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextoEquis" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+        <TextView
+            android:id="@+id/Carro_ciudad"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/TituloPrecio"
-                android:layout_width="47dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Precio" />
-
-            <TextView
-                android:id="@+id/PrecioCarr"
-                android:layout_width="47dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Precio" />
-        </LinearLayout>
+            android:text="TextoEquis"
+            android:textSize="25dp" />
+    </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:textSize="35dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:text="Precio" />
 
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="47dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Duracion" />
-
-            <TextView
-                android:id="@+id/DuracionCarr"
-                android:layout_width="47dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="DIas" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/Carro_cost"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:text="Precio" />
+    </LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="35dp"
+            android:text="Salida" />
 
+        <TextView
+            android:id="@+id/Carro_sale"
+            android:layout_width="47dp"
+            android:textSize="25dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dias" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="35dp"
+            android:text="Llegada" />
+
+        <TextView
+            android:id="@+id/Carro_llega"
+            android:layout_width="47dp"
+            android:textSize="25dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dias" />
     </LinearLayout>
 
 

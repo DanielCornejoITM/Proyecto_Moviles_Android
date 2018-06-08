@@ -49,18 +49,20 @@ class PaqueteCarroAdapter(context: Context, resource: Int, list: ArrayList<Paque
         try {
 
 
-            val Paquetedestino: TextView? = view.findViewById(R.id.DestinoCarr)
+            val Paquetedestino: TextView? = view.findViewById(R.id.Carro_ciudad)
 
-            val Costo: TextView? = view.findViewById(R.id.PrecioCarr)
+            val Costo: TextView? = view.findViewById(R.id.Carro_cost)
 
-            val Dias: TextView?=view.findViewById(R.id.DuracionCarr)
+            val Salida: TextView?=view.findViewById(R.id.Carro_sale)
+            val llegada: TextView?=view.findViewById(R.id.Carro_llega)
 
 
             Paquetedestino?.text=paquete?.v_Destino?:""
 
             Costo?.text=paquete?.v_Precio?:""
 
-            Dias?.text=paquete?.v_Dias?:""
+            Salida?.text=paquete?.v_Sale?:""
+            llegada?.text=paquete?.v_LLega?:""
 
 
 

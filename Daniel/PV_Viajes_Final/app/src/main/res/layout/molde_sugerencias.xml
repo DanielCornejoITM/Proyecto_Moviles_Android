@@ -4,76 +4,74 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ciudad: "
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/Text_Ciudad_S"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textSize="30dp" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/Textv"
-            android:layout_width="47dp"
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Destino: "
+            android:text="Precio: "
             android:textSize="35dp" />
 
         <TextView
-            android:id="@+id/Cata_ciudad"
-            android:layout_width="47dp"
+            android:id="@+id/Text_Precio_S"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextoEquis"
+            android:text="TextView"
             android:textSize="25dp" />
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView12"
-            android:layout_width="47dp"
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35dp"
             android:layout_weight="1"
-            android:text="Precio" />
+            android:text="Salida: "
+            android:textSize="35dp" />
 
         <TextView
-            android:id="@+id/Cata_cost"
-            android:layout_width="47dp"
-            android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:layout_weight="1"
-            android:text="Precio" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="47dp"
+            android:id="@+id/Text_FechaS_S"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="35dp"
-            android:text="Salida" />
+            android:text="TextView"
+            android:textSize="25dp" />
 
-        <TextView
-            android:id="@+id/Cata_sale"
-            android:layout_width="47dp"
-            android:textSize="25dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Dias" />
     </LinearLayout>
 
     <LinearLayout
@@ -84,28 +82,26 @@
 
         <TextView
             android:id="@+id/textView14"
-            android:layout_width="47dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="35dp"
-            android:text="Llegada" />
+            android:text="Retorno: "
+            android:textSize="35dp" />
 
         <TextView
-            android:id="@+id/Cata_llega"
-            android:layout_width="47dp"
-            android:textSize="25dp"
+            android:id="@+id/Text_FechaY_S"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Dias" />
+            android:text="TextView"
+            android:textSize="25dp" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/Cata_boton"
+        android:id="@+id/BotonSug"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Button" />
-
+        android:text="Comprar" />
 
 </LinearLayout>

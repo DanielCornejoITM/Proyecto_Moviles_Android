@@ -20,11 +20,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonSuger"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="Button"
+            android:text="Carrito"
             tools:layout_editor_absoluteX="248dp"
             tools:layout_editor_absoluteY="0dp" />
 

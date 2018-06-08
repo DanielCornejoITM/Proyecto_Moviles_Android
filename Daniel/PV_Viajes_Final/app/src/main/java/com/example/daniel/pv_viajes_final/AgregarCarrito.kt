@@ -23,12 +23,12 @@ class AgregarCarrito{
 }
 
 
-    fun addItem(DestinoC: String,DiasC: String,PrecioC: String) {
+    fun addItem(DestinoC: String,Salida: String,Llegada: String,PrecioC: String) {
 
         var r =(0..1000).random()
         hijo2=r.toString()
 
-        Toast.makeText(mcontexto,"Recibo Destino:$DestinoC\nDias: $DiasC\n y Precio:$PrecioC\n para el hijo= $hijo2 ",Toast.LENGTH_LONG).show()
+        Toast.makeText(mcontexto,"Recibo Destino:$DestinoC\nDias: $Salida\n y Precio:$PrecioC\n para el hijo= $hijo2 ",Toast.LENGTH_LONG).show()
 
         try {
             firebaseData
@@ -48,8 +48,13 @@ class AgregarCarrito{
             firebaseData
                     .child(hijo1)
                     .child(hijo2)
-                    .child("dias")
-                    .setValue(DiasC)
+                    .child("salida")
+                    .setValue(Salida)
+            firebaseData
+                    .child(hijo1)
+                    .child(hijo2)
+                    .child("llegada")
+                    .setValue(Salida)
 
             Toast.makeText(mcontexto,"Segun, ya añadio",Toast.LENGTH_LONG).show()
 
